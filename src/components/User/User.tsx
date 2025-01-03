@@ -2,7 +2,7 @@ export const User = (props: any) => {
     const { name, age, nationality } = props;
 
     // console.log(props);
-    console.log(props.name);
+    // console.log(props.name);
 
     return (
         <div>
