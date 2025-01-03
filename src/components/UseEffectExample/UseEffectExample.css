@@ -1,0 +1,9 @@
+.use-effect {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .use-effect p {
+    font-size: 18px;
+    color: #555;
+  }
