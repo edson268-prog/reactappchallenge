@@ -1,14 +1,23 @@
-import Item from "./item"
+import Item from "./Item"
 
 export default function ItemList({ productos }: any) {
     return (
         <>
-            <h1>Lista de Productos</h1>
-            {productos.map((producto: any) => {
+            <div className="productos-grilla">
+                {
+                    productos.length > 0 ?
+                        productos.map((producto: { id: any }) => {
+                            return <Item key={producto.id} producto={producto} />
+                        })
+                        : <p>Cargando productos...</p>
+                }
+
+            </div>
+            {/* {productos.map((producto: any) => {
                 return (
                     <Item producto={producto} />
                 )
-            })}
+            })} */}
         </>
     )
 }
