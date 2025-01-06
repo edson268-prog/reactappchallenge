@@ -3,31 +3,26 @@ import Counter from './components/Counter/Counter';
 import UseEffectExample from './components/UseEffectExample/UseEffectExample';
 import './App.css';
 import MapExample from './components/MapExample/MapExample';
+import PokeInfo from './components/PokeAPI/PokeInfo';
+import PokeList from './components/PokeAPI/PokeList';
+import Navbar from './components/Navbar/Navbar';
+import { ItemDetailContainer } from './components/MapExample/ItemDetailContainer';
 
 function App() {
+
   return (
     <Router>
       <div>
-        <nav className="navbar">
-          <div className="navbar-brand">React Challenge</div>
-          <ul className="navbar-menu">
-            <li className="navbar-item">
-              <Link to="/" className="navbar-link">Contador</Link>
-            </li>
-            <li className="navbar-item">
-              <Link to="/use-effect" className="navbar-link">useEffect</Link>
-            </li>
-            <li className="navbar-item">
-              <Link to="/map" className="navbar-link">Map</Link>
-            </li>
-          </ul>
-        </nav>
-
+        <Navbar />
+        <ItemDetailContainer itemId={2} />
         <div className="content">
           <Routes>
             <Route path="/" element={<Counter />} />
             <Route path="/use-effect" element={<UseEffectExample />} />
             <Route path="/map" element={<MapExample />} />
+            <Route path="/pokemon" element={<PokeInfo />} />
+            <Route path="/pokeinfo" element={<PokeInfo />} />
+            <Route path="/pokelist" element={<PokeList />} />
           </Routes>
         </div>
       </div>
@@ -36,3 +31,4 @@ function App() {
 }
 
 export default App
+
