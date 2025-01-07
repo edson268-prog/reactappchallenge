@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Item({ producto }: any) {
     return (
         <>
@@ -5,8 +7,9 @@ export default function Item({ producto }: any) {
                 <img src={producto.imagen} />
                 <h2>{producto.nombre}</h2>
                 <p>${producto.precio}</p>
+                <p>{producto.categoria.nombre}</p>
                 <p>{producto.descripcion}</p>
-                <a className="ver-mas" href={`/item/${producto.id}`}>Ver más</a>
+                <Link className="ver-mas" to={`/item/${producto.id}`}>Ver más</Link>
                 {/* <button onClick={() => agregarAlCarrito(producto)}>Agregar al carrito</button> */}
             </div>
         </>

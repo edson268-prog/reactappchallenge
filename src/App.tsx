@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import Counter from './components/Counter/Counter';
 import UseEffectExample from './components/UseEffectExample/UseEffectExample';
 import './App.css';
@@ -7,26 +7,30 @@ import PokeInfo from './components/PokeAPI/PokeInfo';
 import PokeList from './components/PokeAPI/PokeList';
 import Navbar from './components/Navbar/Navbar';
 import { ItemDetailContainer } from './components/MapExample/ItemDetailContainer';
+import About from './components/About/About';
 
 function App() {
 
   return (
-    <Router>
-      <div>
+    <div>
+      <BrowserRouter>
+
         <Navbar />
-        <ItemDetailContainer itemId={2} />
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<Counter />} />
-            <Route path="/use-effect" element={<UseEffectExample />} />
-            <Route path="/map" element={<MapExample />} />
-            <Route path="/pokemon" element={<PokeInfo />} />
-            <Route path="/pokeinfo" element={<PokeInfo />} />
-            <Route path="/pokelist" element={<PokeList />} />
-          </Routes>
-        </div>
-      </div>
-    </Router>
+        <Routes>
+          <Route path="/" element={<Counter />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/use-effect" element={<UseEffectExample />} />
+          <Route path="/productos" element={<MapExample />} />
+          <Route path="/pokemon" element={<PokeInfo />} />
+          <Route path="/pokeinfo" element={<PokeInfo />} />
+          <Route path="/pokelist" element={<PokeList />} />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="/productos/:categoria" element={<MapExample />} />
+
+        </Routes>
+
+      </BrowserRouter>
+    </div>
   );
 }
 

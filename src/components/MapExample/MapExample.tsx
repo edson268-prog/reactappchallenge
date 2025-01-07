@@ -3,9 +3,13 @@ import { useEffect, useState } from 'react'
 import ItemList from './ItemList';
 import { pedirDatos } from '../Helpers/PedirDatos';
 import './MapExample.css'
+import { useParams } from 'react-router-dom';
+import { toCapital } from '../Helpers/ToCapital';
 
 export default function MapExample() {
     const [productos, setProductos] = useState<any[]>([]);
+    const categoria = useParams().categoria;
+
     let [titulo, setTitulo] = useState("Productos");
     // let productos: any = [];
 
@@ -21,12 +25,19 @@ export default function MapExample() {
 
     useEffect(() => {
         pedirDatos().then((res: any) => {
-            setProductos(res);
+            if (categoria) {
+                setProductos(res.filter((prod: any) => prod.categoria.id == categoria));
+                setTitulo(categoria)
+            } else {
+                setProductos(res);
+                setTitulo("Productos")
+            }
         });
-    }, []); // Ejecuta al montar el componente
+    }, [categoria]);
+
     return (
         <div className="item-list-container">
-            <h1>{titulo}</h1>
+            <h1>{toCapital(titulo)}</h1>
             <ItemList productos={productos} />
         </div>
     );
