@@ -1,7 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ItemCount from "./ItemCount"
+import { CartContext } from "../../context/CartContext";
 
 export const ItemDetail = ({ item }: any) => {
+    const useCart = () => {
+        const context = useContext(CartContext);
+        if (!context) {
+            throw new Error("useCart debe ser usado dentro de un CartProvider");
+        }
+        return context;
+    };
+
+    const { carrito, agregarAlCarrito } = useCart();
+    console.log(carrito);
+
+
     const [cantidad, setCantidad] = useState(1);
 
     const handleRestar = () => {
@@ -12,9 +25,7 @@ export const ItemDetail = ({ item }: any) => {
         cantidad < item.stock && setCantidad((cantidad) => cantidad + 1)
     }
 
-    const handleAgregar = () => {
-        console.log({...item, cantidad})
-    }
+
 
     return (
         <div className="container">
@@ -25,7 +36,11 @@ export const ItemDetail = ({ item }: any) => {
                     <p className="descripcion">{item.descripcion}</p>
                     <p className="categoria">Categoría: {item.categoria.nombre}</p>
                     <p className="precio">${item.precio}</p>
-                    <ItemCount cantidad={cantidad} handleSumar={handleSumar} handleRestar={handleRestar} handleAgregar={handleAgregar}/>
+                    <ItemCount
+                        cantidad={cantidad}
+                        handleSumar={handleSumar}
+                        handleRestar={handleRestar}
+                        handleAgregar={() => { agregarAlCarrito(item, cantidad) }} />
                 </div>
             </div>
         </div>

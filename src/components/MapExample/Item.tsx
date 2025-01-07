@@ -4,7 +4,7 @@ export default function Item({ producto }: any) {
     return (
         <>
             <div className="producto">
-                <img src={producto.imagen} />
+                <img src={producto.imagen} alt={producto.nombre} />
                 <h2>{producto.nombre}</h2>
                 <p>${producto.precio}</p>
                 <p>{producto.categoria.nombre}</p>
