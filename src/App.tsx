@@ -8,28 +8,34 @@ import PokeList from './components/PokeAPI/PokeList';
 import Navbar from './components/Navbar/Navbar';
 import { ItemDetailContainer } from './components/MapExample/ItemDetailContainer';
 import About from './components/About/About';
+import Contacto from './components/Contacto/Contacto';
+import { CartContext, CartProvider } from './context/CartContext';
+import Carrito from './components/Carrito/Carrito';
 
 function App() {
-
   return (
     <div>
-      <BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
 
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Counter />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/use-effect" element={<UseEffectExample />} />
-          <Route path="/productos" element={<MapExample />} />
-          <Route path="/pokemon" element={<PokeInfo />} />
-          <Route path="/pokeinfo" element={<PokeInfo />} />
-          <Route path="/pokelist" element={<PokeList />} />
-          <Route path="/item/:id" element={<ItemDetailContainer />} />
-          <Route path="/productos/:categoria" element={<MapExample />} />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Counter />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/use-effect" element={<UseEffectExample />} />
+            <Route path="/productos" element={<MapExample />} />
+            <Route path="/pokemon" element={<PokeInfo />} />
+            <Route path="/pokeinfo" element={<PokeInfo />} />
+            <Route path="/pokelist" element={<PokeList />} />
+            <Route path="/item/:id" element={<ItemDetailContainer />} />
+            <Route path="/productos/:categoria" element={<MapExample />} />
+            <Route path="/contacto/" element={<Contacto />} />
+            <Route path="/carrito/" element={<Carrito />} />
 
-        </Routes>
+          </Routes>
 
-      </BrowserRouter>
+        </BrowserRouter>
+      </CartProvider>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './Navbar.css'
+import CartWidget from "../CartWidget/CartWidget";
 
 export default function Navbar() {
     const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
@@ -18,7 +19,7 @@ export default function Navbar() {
         <nav className="navbar">
             <div className="navbar-brand">React Challenge</div>
             <ul className="navbar-menu">
-            <li className="navbar-item">
+                <li className="navbar-item">
                     <Link to="/about" className="navbar-link">About</Link>
                 </li>
                 <li className="navbar-item">
@@ -63,6 +64,10 @@ export default function Navbar() {
                         </ul>
                     )}
                 </li>
+                <li className="navbar-item">
+                    <Link to="/contacto" className="navbar-link">Contacto</Link>
+                </li>
+                <CartWidget />
             </ul>
         </nav>
     );
