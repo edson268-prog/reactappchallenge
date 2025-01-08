@@ -22,7 +22,7 @@ export const ItemDetail = ({ item }: any) => {
     }
 
     const handleSumar = () => {
-        cantidad < item.stock && setCantidad((cantidad) => cantidad + 1)
+        cantidad < item.Stock && setCantidad((cantidad) => cantidad + 1)
     }
 
 
@@ -30,12 +30,13 @@ export const ItemDetail = ({ item }: any) => {
     return (
         <div className="container">
             <div className="producto-detalle">
-                <img src={item.imagen} alt={item.nombre} />
+                <img src={item.Imagen} alt={item.Nombre} />
                 <div>
-                    <h3 className="titulo">{item.nombre}</h3>
-                    <p className="descripcion">{item.descripcion}</p>
-                    <p className="categoria">Categoría: {item.categoria.nombre}</p>
-                    <p className="precio">${item.precio}</p>
+                    <h3 className="titulo">{item.Nombre}</h3>
+                    <p className="descripcion">{item.Descripcion}</p>
+                    {/* <p className="categoria">Categoría: {item.categoria.nombre}</p> */}
+                    <p className="categoria">Categoría: {item.Categoria}</p>
+                    <p className="precio">${item.Precio}</p>
                     <ItemCount
                         cantidad={cantidad}
                         handleSumar={handleSumar}
