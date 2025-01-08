@@ -11,6 +11,7 @@ import About from './components/About/About';
 import Contacto from './components/Contacto/Contacto';
 import { CartContext, CartProvider } from './context/CartContext';
 import Carrito from './components/Carrito/Carrito';
+import Checkout from './components/Checkout/Checkout';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/productos/:categoria" element={<MapExample />} />
             <Route path="/contacto/" element={<Contacto />} />
             <Route path="/carrito/" element={<Carrito />} />
+            <Route path="/checkout/" element={<Checkout />} />
 
           </Routes>
 
